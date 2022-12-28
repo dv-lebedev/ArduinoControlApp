@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComPortApp;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Data;
 
-namespace ComPortApp.Monitor.Converters
+namespace ArduinoControlApp.Converters
 {
     internal class InputDataConverter : IValueConverter
     {

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C7A4CDF4-E244-4B6E-9B66-3A8276718237}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ArduinoManager</RootNamespace>
-    <AssemblyName>ArduinoManager</AssemblyName>
+    <RootNamespace>ArduinoControlApp</RootNamespace>
+    <AssemblyName>ArduinoControlApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -63,10 +63,10 @@
     <Compile Include="Ftdi\FtdiDevice.cs" />
     <Compile Include="Models\FtdiDeviceModel.cs" />
     <Compile Include="Models\SerialPortDeviceModel.cs" />
-    <Compile Include="Monitor\Converters\BoolInverseConverter.cs" />
+    <Compile Include="Converters\BoolInverseConverter.cs" />
     <Compile Include="Monitor\ComPortDevice.cs" />
-    <Compile Include="Monitor\Converters\BytexToHexStringConverter.cs" />
-    <Compile Include="Monitor\Converters\InputDataConverter.cs" />
+    <Compile Include="Converters\BytexToHexStringConverter.cs" />
+    <Compile Include="Converters\InputDataConverter.cs" />
     <Compile Include="Monitor\DeviceModel.cs" />
     <Compile Include="Interfaces\IDataConsumer.cs" />
     <Compile Include="Interfaces\IDevice.cs" />
@@ -137,7 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Utils\Speedometer.cs" />
-    <Compile Include="Monitor\Converters\SpeedWithSizeSuffixConverter.cs" />
+    <Compile Include="Converters\SpeedWithSizeSuffixConverter.cs" />
     <Compile Include="Monitor\StatisticItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

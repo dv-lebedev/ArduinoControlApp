@@ -1,10 +1,11 @@
-﻿using ComPortApp.ViewModels;
+﻿using ComPortApp;
+using ComPortApp.ViewModels;
 using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace ComPortApp.Monitor.Converters
+namespace ArduinoControlApp.Converters
 {
     internal static class BytesSizeInfo
     {

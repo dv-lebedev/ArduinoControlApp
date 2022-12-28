@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace ArduinoManager.Converters
+namespace ArduinoControlApp.Converters
 {
     internal class IsNotNullConverter : IValueConverter
     {

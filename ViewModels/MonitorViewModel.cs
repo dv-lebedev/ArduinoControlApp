@@ -1,7 +1,7 @@
-﻿using ArduinoDecoder;
+﻿using ArduinoControlApp.Converters;
+using ArduinoDecoder;
 using ComPortApp.Commands;
 using ComPortApp.Monitor;
-using ComPortApp.Monitor.Converters;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
