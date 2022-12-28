@@ -1,5 +1,17 @@
-﻿using ArduinoControlApp.Interfaces;
-using ArduinoControlApp.Monitor;
+﻿/*
+Copyright(c) 2022-2023 Denis Lebedev
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+using ArduinoControlApp.Interfaces;
 using FTD2XX_NET;
 using System;
 using System.Linq;
@@ -8,9 +20,9 @@ namespace ArduinoControlApp.Ftdi
 {
     internal class FtdiDevice : IDevice
     {
-        private string _serialNumber;
-        private readonly FTDI ftdi = new FTDI();
-        private readonly static FTDI _detector = new FTDI();
+        string                  _serialNumber;
+        readonly FTDI           _ftdi = new FTDI();
+        readonly static FTDI    _detector = new FTDI();
 
         public string SerialNumber
         {
@@ -33,12 +45,12 @@ namespace ArduinoControlApp.Ftdi
 
         public void Dispose()
         {
-            ftdi.Close();
+            _ftdi.Close();
         }
 
         public void Open()
         {
-            ftdi.OpenBySerialNumberExtended2(SerialNumber);
+            _ftdi.OpenBySerialNumberExtended2(SerialNumber);
         }
 
         public int Read(byte[] buffer, int offset, int count)
@@ -47,7 +59,7 @@ namespace ArduinoControlApp.Ftdi
 
             if (count > 0)
             {
-                ftdi.Read(buffer, (uint)count, ref numBytesRead);
+                _ftdi.Read(buffer, (uint)count, ref numBytesRead);
             }
 
             return (int)numBytesRead;
@@ -56,7 +68,7 @@ namespace ArduinoControlApp.Ftdi
         public void Write(byte[] buffer, int offset, int count)
         {
             uint numBytesWritten = 0;
-            ftdi?.Write(buffer, count, ref numBytesWritten);
+            _ftdi?.Write(buffer, count, ref numBytesWritten);
         }
 
         public static string[] GetAvailableSerialNumbers()

@@ -1,7 +1,23 @@
-﻿using ArduinoControlApp.Converters;
-using ArduinoDecoder;
+﻿/*
+Copyright(c) 2022-2023 Denis Lebedev
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+using ArduinoControlApp.Coder;
 using ArduinoControlApp.Commands;
-using ArduinoControlApp.Monitor;
+using ArduinoControlApp.Converters;
+using ArduinoControlApp.Entities;
+using ArduinoControlApp.Interfaces;
+using ArduinoControlApp.Models;
+using ArduinoControlApp.Utils;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -9,19 +25,17 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows.Data;
 using System.Windows.Threading;
-using ArduinoControlApp.Interfaces;
-using ArduinoControlApp.Utils;
 
 namespace ArduinoControlApp.ViewModels
 {
     internal class MonitorViewModel : INotifyPropertyChanged, IDataConsumer
     {
-        private readonly DispatcherTimer    _timer;
-        private bool                        _enabled;
-        private byte                        _selectedAddress;
-        private byte[]                      _inputData;
-        private string                      _inputAsString;
-        private readonly object             _locker = new object();
+        readonly DispatcherTimer    _timer;
+        bool                        _enabled;
+        byte                        _selectedAddress;
+        byte[]                      _inputData;
+        string                      _inputAsString;
+        readonly object             _locker = new object();
 
         public event PropertyChangedEventHandler    PropertyChanged;
         public ObservableCollection<byte>           Addresses { get; }

@@ -1,5 +1,18 @@
-﻿using ArduinoControlApp.Commands;
-using ArduinoControlApp.Monitor;
+﻿/*
+Copyright(c) 2022-2023 Denis Lebedev
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+using ArduinoControlApp.Commands;
+using ArduinoControlApp.Models;
 using System;
 using System.Windows.Threading;
 
@@ -7,11 +20,11 @@ namespace ArduinoControlApp.ViewModels
 {
     internal class BaseDeviceControlViewModel : BaseViewModel
     {
-        private DeviceModel _deviceModel;
-        private readonly DispatcherTimer _timer;
-        private bool _enabled;
-        private double _receivedSpeed;
-        private double _transmitSpeed;
+        DeviceModel                 _deviceModel;
+        readonly DispatcherTimer    _timer;
+        bool                        _enabled;
+        double                      _receivedSpeed;
+        double                      _transmitSpeed;
 
         public DeviceControlStartStopCommand DeviceControlStartStopCommand { get; }
 
@@ -31,7 +44,7 @@ namespace ArduinoControlApp.ViewModels
         public double ReceivedSpeed
         {
             get => _receivedSpeed;
-            set
+            protected set
             {
                 if (_receivedSpeed != value)
                 {
@@ -44,7 +57,7 @@ namespace ArduinoControlApp.ViewModels
         public double TransmitSpeed
         {
             get => _transmitSpeed;
-            set
+            protected set
             {
                 if (_transmitSpeed != value)
                 {
@@ -57,7 +70,7 @@ namespace ArduinoControlApp.ViewModels
         public DeviceModel DeviceModel
         {
             get => _deviceModel;
-            set
+            protected set
             {
                 if (_deviceModel != value)
                 {
@@ -107,13 +120,13 @@ namespace ArduinoControlApp.ViewModels
             }
         }
 
-        internal void Start()
+        public void Start()
         {
             DeviceModel?.Connect();
             Enabled = true;
         }
 
-        internal void Stop()
+        public void Stop()
         {
             DeviceModel?.Disconnect();
             Enabled = false;

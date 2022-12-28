@@ -55,26 +55,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Coder\CRC8ATM.cs" />
+    <Compile Include="Coder\Package.cs" />
     <Compile Include="Commands\MakeToneCommand.cs" />
     <Compile Include="Commands\DeviceControlStartStopCommand.cs" />
     <Compile Include="Commands\SendPackageCommand.cs" />
     <Compile Include="Converters\IsNotNullConverter.cs" />
+    <Compile Include="Entities\Statistics.cs" />
     <Compile Include="Ftdi\FTD2XX_NET.cs" />
     <Compile Include="Ftdi\FtdiDevice.cs" />
     <Compile Include="Models\FtdiDeviceModel.cs" />
     <Compile Include="Models\SerialPortDeviceModel.cs" />
     <Compile Include="Converters\BoolInverseConverter.cs" />
-    <Compile Include="Monitor\ComPortDevice.cs" />
+    <Compile Include="Serial\ComPortDevice.cs" />
     <Compile Include="Converters\BytexToHexStringConverter.cs" />
     <Compile Include="Converters\InputDataConverter.cs" />
-    <Compile Include="Monitor\DeviceModel.cs" />
+    <Compile Include="Models\DeviceModel.cs" />
     <Compile Include="Interfaces\IDataConsumer.cs" />
     <Compile Include="Interfaces\IDevice.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="ViewModels\BaseDeviceControlViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Utils\ObservableRangeCollection.cs" />
-    <Compile Include="Monitor\RCoder.cs" />
+    <Compile Include="Coder\RCoder.cs" />
     <Compile Include="ViewModels\FtdiDeviceControlViewModel.cs" />
     <Compile Include="ViewModels\MonitorViewModel.cs" />
     <Compile Include="ViewModels\SerialPortDeviceControlViewModel.cs" />
@@ -138,7 +141,7 @@
   <ItemGroup>
     <Compile Include="Utils\Speedometer.cs" />
     <Compile Include="Converters\SpeedWithSizeSuffixConverter.cs" />
-    <Compile Include="Monitor\StatisticItem.cs" />
+    <Compile Include="Entities\StatisticItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

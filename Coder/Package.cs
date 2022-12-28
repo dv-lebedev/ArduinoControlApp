@@ -11,17 +11,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-using ArduinoControlApp.ViewModels;
-using System.Windows.Controls;
+using System;
 
-namespace ArduinoControlApp.Views
+namespace ArduinoControlApp.Coder
 {
-    public partial class ServoView : UserControl
+    public class Package
     {
-        public ServoView()
-        {
-            InitializeComponent();
-            DataContext = new ServoViewModel { };
-        }
+        public DateTime Timestamp { get; set; }
+        public byte Addr { get; set; }
+        public int Size { get; set; }
+        public byte CrcHeader { get; set; }
+        public byte[] Data { get; set; }
+        public ushort CrcOverall { get; set; }
+        public bool CrcHeaderErr { get; internal set; }
+        public bool OverallCrcErr { get; internal set; }
     }
 }
