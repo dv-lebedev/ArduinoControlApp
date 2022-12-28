@@ -1,8 +1,8 @@
-﻿using ComPortApp.Ftdi;
-using ComPortApp.Monitor;
+﻿using ArduinoControlApp.Ftdi;
+using ArduinoControlApp.Monitor;
 using System;
 
-namespace ComPortApp.Models
+namespace ArduinoControlApp.Models
 {
     internal class FtdiDeviceModel : DeviceModel
     {

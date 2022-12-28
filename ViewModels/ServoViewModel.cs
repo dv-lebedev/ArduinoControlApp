@@ -1,8 +1,8 @@
-﻿using ComPortApp.Monitor;
+﻿using ArduinoControlApp.Monitor;
 using System;
 using System.ComponentModel;
 
-namespace ComPortApp.ViewModels
+namespace ArduinoControlApp.ViewModels
 {
     internal class ServoViewModel : INotifyPropertyChanged
     {

@@ -1,9 +1,10 @@
-﻿using ComPortApp.Monitor;
+﻿using ArduinoControlApp.Interfaces;
+using ArduinoControlApp.Monitor;
 using FTD2XX_NET;
 using System;
 using System.Linq;
 
-namespace ComPortApp.Ftdi
+namespace ArduinoControlApp.Ftdi
 {
     internal class FtdiDevice : IDevice
     {

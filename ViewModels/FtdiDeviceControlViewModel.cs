@@ -1,12 +1,12 @@
-﻿using ComPortApp.Commands;
-using ComPortApp.Models;
-using ComPortApp.Monitor;
+﻿using ArduinoControlApp.Commands;
+using ArduinoControlApp.Models;
+using ArduinoControlApp.Monitor;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Threading;
 
-namespace ComPortApp.ViewModels
+namespace ArduinoControlApp.ViewModels
 {
     internal class FtdiDeviceControlViewModel : BaseDeviceControlViewModel
     {

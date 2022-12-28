@@ -1,6 +1,6 @@
-﻿using ComPortApp.Commands;
+﻿using ArduinoControlApp.Commands;
 
-namespace ComPortApp.ViewModels
+namespace ArduinoControlApp.ViewModels
 {
     internal class ToneGenViewModel
     {

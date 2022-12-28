@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace ComPortApp
+namespace ArduinoControlApp
 {
     public partial class MainWindow : Window
     {

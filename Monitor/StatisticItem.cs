@@ -4,7 +4,7 @@ using System.Collections.Concurrent;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace ComPortApp.Monitor
+namespace ArduinoControlApp.Monitor
 {
     public class StatisticItem : INotifyPropertyChanged
     {

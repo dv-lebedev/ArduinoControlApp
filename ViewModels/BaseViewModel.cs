@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComPortApp.ViewModels
+namespace ArduinoControlApp.ViewModels
 {
     internal class BaseViewModel : INotifyPropertyChanged
     {

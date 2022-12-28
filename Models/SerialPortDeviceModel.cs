@@ -1,7 +1,7 @@
-﻿using ComPortApp.Monitor;
+﻿using ArduinoControlApp.Monitor;
 using System;
 
-namespace ComPortApp.Models
+namespace ArduinoControlApp.Models
 {
     internal class SerialPortDeviceModel : DeviceModel
     {

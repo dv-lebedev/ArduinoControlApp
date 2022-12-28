@@ -1,8 +1,8 @@
-﻿using ComPortApp.Monitor;
+﻿using ArduinoControlApp.Monitor;
 using System;
 using System.Windows.Input;
 
-namespace ComPortApp.Commands
+namespace ArduinoControlApp.Commands
 {
     internal class MakeToneCommand : ICommand
     {

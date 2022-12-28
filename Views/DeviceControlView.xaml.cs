@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace ComPortApp.Views
+namespace ArduinoControlApp.Views
 {
     public partial class DeviceControlView : UserControl
     {

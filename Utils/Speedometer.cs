@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace ComPortApp.Monitor
+namespace ArduinoControlApp.Utils
 {
     internal class Speedometer
     {

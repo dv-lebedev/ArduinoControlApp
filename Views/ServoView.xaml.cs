@@ -1,7 +1,7 @@
-﻿using ComPortApp.ViewModels;
+﻿using ArduinoControlApp.ViewModels;
 using System.Windows.Controls;
 
-namespace ComPortApp.Views
+namespace ArduinoControlApp.Views
 {
     public partial class ServoView : UserControl
     {

@@ -1,8 +1,8 @@
-﻿using ComPortApp.ViewModels;
+﻿using ArduinoControlApp.ViewModels;
 using System;
 using System.Windows.Input;
 
-namespace ComPortApp.Commands
+namespace ArduinoControlApp.Commands
 {
     class DeviceControlStartStopCommand : ICommand
     {

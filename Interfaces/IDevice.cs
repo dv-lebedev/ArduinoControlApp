@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ComPortApp.Monitor
+namespace ArduinoControlApp.Interfaces
 {
     public interface IDevice : IDisposable
     {

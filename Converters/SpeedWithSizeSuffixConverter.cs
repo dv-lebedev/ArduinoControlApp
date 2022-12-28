@@ -1,5 +1,5 @@
-﻿using ComPortApp;
-using ComPortApp.ViewModels;
+﻿using ArduinoControlApp;
+using ArduinoControlApp.ViewModels;
 using System;
 using System.Globalization;
 using System.Windows;

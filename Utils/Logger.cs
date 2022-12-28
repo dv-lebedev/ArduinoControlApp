@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 
-namespace ComPortApp
+namespace ArduinoControlApp
 {
     internal class Logger
     {

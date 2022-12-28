@@ -1,9 +1,9 @@
-﻿using ComPortApp.ViewModels;
+﻿using ArduinoControlApp.ViewModels;
 using System;
 using System.Collections.Specialized;
 using System.Windows.Controls;
 
-namespace ComPortApp.Views
+namespace ArduinoControlApp.Views
 {
     public partial class MonitorView : UserControl
     {

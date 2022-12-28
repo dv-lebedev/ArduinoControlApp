@@ -1,6 +1,6 @@
 ﻿using ArduinoDecoder;
 
-namespace ComPortApp.Monitor
+namespace ArduinoControlApp.Interfaces
 {
     public interface IDataConsumer
     {

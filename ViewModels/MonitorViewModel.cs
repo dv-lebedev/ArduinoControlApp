@@ -1,7 +1,7 @@
 ﻿using ArduinoControlApp.Converters;
 using ArduinoDecoder;
-using ComPortApp.Commands;
-using ComPortApp.Monitor;
+using ArduinoControlApp.Commands;
+using ArduinoControlApp.Monitor;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -9,8 +9,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows.Data;
 using System.Windows.Threading;
+using ArduinoControlApp.Interfaces;
+using ArduinoControlApp.Utils;
 
-namespace ComPortApp.ViewModels
+namespace ArduinoControlApp.ViewModels
 {
     internal class MonitorViewModel : INotifyPropertyChanged, IDataConsumer
     {

@@ -1,9 +1,9 @@
-﻿using ComPortApp.Models;
+﻿using ArduinoControlApp.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace ComPortApp.ViewModels
+namespace ArduinoControlApp.ViewModels
 {
     internal class SerialPortDeviceControlViewModel : BaseDeviceControlViewModel
     {

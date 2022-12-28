@@ -1,9 +1,9 @@
-﻿using ComPortApp.Commands;
-using ComPortApp.Monitor;
+﻿using ArduinoControlApp.Commands;
+using ArduinoControlApp.Monitor;
 using System;
 using System.Windows.Threading;
 
-namespace ComPortApp.ViewModels
+namespace ArduinoControlApp.ViewModels
 {
     internal class BaseDeviceControlViewModel : BaseViewModel
     {

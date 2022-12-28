@@ -1,8 +1,9 @@
-﻿using ComPortApp.Monitor;
+﻿using ArduinoControlApp.Interfaces;
+using ArduinoControlApp.Monitor;
 using System;
 using System.IO.Ports;
 
-namespace ComPortApp
+namespace ArduinoControlApp
 {
     internal class ComPortDevice : IDevice
     {

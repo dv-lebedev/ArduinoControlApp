@@ -1,10 +1,12 @@
-﻿using ArduinoDecoder;
+﻿using ArduinoControlApp.Interfaces;
+using ArduinoControlApp.Utils;
+using ArduinoDecoder;
 using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ComPortApp.Monitor
+namespace ArduinoControlApp.Monitor
 {
     public abstract class DeviceModel
     {
