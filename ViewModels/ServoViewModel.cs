@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComPortApp.Monitor;
+using System;
 using System.ComponentModel;
 
 namespace ComPortApp.ViewModels
@@ -20,7 +21,7 @@ namespace ComPortApp.ViewModels
 
                     try
                     {
-                        App.CurrentDeviceModel?.Write(0xCB, new byte[] { 0x00, (byte)_prog, });
+                        DeviceModel.CurrentDeviceModel?.Write(0xCB, new byte[] { 0x00, (byte)_prog, });
                     }
                     catch (Exception ex)
                     {

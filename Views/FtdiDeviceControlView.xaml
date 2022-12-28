@@ -3,17 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:converters="clr-namespace:ComPortApp.Monitor.Converters"
+             xmlns:converters="clr-namespace:ComPortApp.Monitor.Converters" 
+             xmlns:converters1="clr-namespace:ArduinoManager.Converters"
              mc:Ignorable="d">
     <Grid>
         <Grid.Resources>
             <ResourceDictionary>
                 <converters:SpeedWithSizeSuffixConverter x:Key="speedConverter"/>
+                <converters1:IsNotNullConverter x:Key="isNotNullConverter"/>
             </ResourceDictionary>
         </Grid.Resources>
         <StackPanel Orientation="Horizontal" Margin="5">
-            <ComboBox Height="23" MinWidth="150" ItemsSource="{Binding UsbDevices}"/>
-            <Button Command="{Binding ConnectToUsbCommand}">
+            <ComboBox Height="23" MinWidth="150" 
+                      ItemsSource="{Binding SerialNumbers}"
+                      SelectedItem="{Binding SelectedSerialNumber}"/>
+            <Button Command="{Binding DeviceControlStartStopCommand}"
+                    IsEnabled="{Binding SelectedSerialNumber, Converter={StaticResource isNotNullConverter}}">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Margin" Value="10 0"/>

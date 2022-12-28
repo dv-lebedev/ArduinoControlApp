@@ -98,12 +98,12 @@ namespace ComPortApp.ViewModels
 
                 SelectedAddress = Addresses?.FirstOrDefault() ?? 0;
 
-                App.CurrentDeviceModelChanged += (__, ___) =>
+                DeviceModel.CurrentDeviceModelChanged += (__, ___) =>
                 {
-                    if (App.CurrentDeviceModel != null)
+                    if (DeviceModel.CurrentDeviceModel != null)
                     {
-                        App.CurrentDeviceModel.DataConsumer = this;
-                        App.CurrentDeviceModel.Disconnected += (s, _) => Enabled = false;
+                        DeviceModel.CurrentDeviceModel.DataConsumer = this;
+                        DeviceModel.CurrentDeviceModel.Disconnected += (s, _) => Enabled = false;
                     }
                 };
 
@@ -160,7 +160,7 @@ namespace ComPortApp.ViewModels
             {
                 InputData = InputDataConverter.ConvertHexStringToByteArray(InputDataAsString);
 
-                App.CurrentDeviceModel?.Write(SelectedAddress, InputData);
+                DeviceModel.CurrentDeviceModel?.Write(SelectedAddress, InputData);
             }
         }
     }

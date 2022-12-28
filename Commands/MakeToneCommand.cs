@@ -33,7 +33,7 @@ namespace ComPortApp.Commands
                     data[6] = (byte)(duration >> 8); 
                     data[7] = (byte)duration;
 
-                    App.CurrentDeviceModel?.Write(0xAA, data);
+                    DeviceModel.CurrentDeviceModel?.Write(0xAA, data);
                 }
             }
             catch (Exception ex)

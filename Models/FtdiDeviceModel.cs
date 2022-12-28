@@ -13,18 +13,24 @@ namespace ComPortApp.Models
             get => _serialNumber;
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException(nameof(SerialNumber));
-                }
-
-                _serialNumber = value;
+                _serialNumber = value ?? throw new ArgumentException(nameof(SerialNumber));
             }
         }
 
         protected override void InitCurrentDevice()
         {
-            CurrentDevice = new FtdiDevice(SerialNumber);
+            var ftdi = new FtdiDevice
+            {
+                SerialNumber = SerialNumber
+            };
+
+            CurrentDevice = ftdi;
+            CurrentDeviceModel = this;
+        }
+
+        public string[] GetAvailableSerialNumbers()
+        {
+            return FtdiDevice.GetAvailableSerialNumbers();
         }
     }
 }

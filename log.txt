@@ -1,0 +1,533 @@
+20221228_105757.832
+System.ArgumentException: Baudrate
+   at ComPortApp.Models.SerialPortDeviceModel.set_Baudrate(Int32 value) in C:\Users\User\Source\Repos\ArduinoControlApp\Models\SerialPortDeviceModel.cs:line 39
+   at ComPortApp.ViewModels.SerialPortDeviceControlViewModel.set_SelectedSpeed(Int32 value) in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\SerialPortDeviceControlViewModel.cs:line 42
+   at ComPortApp.ViewModels.SerialPortDeviceControlViewModel..ctor() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\SerialPortDeviceControlViewModel.cs:line 63
+
+
+20221228_105800.758
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105801.758
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105802.755
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105803.764
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105804.755
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105805.755
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105806.766
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105807.760
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105808.758
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105809.755
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105810.765
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105811.758
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105812.769
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105813.777
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105814.769
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105815.780
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105816.776
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105817.771
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105818.783
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105819.779
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105820.776
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105821.772
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105822.782
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105823.772
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105824.769
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105825.782
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105826.778
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105827.774
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105828.772
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105829.778
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105830.782
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105831.777
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105832.782
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105833.781
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105834.777
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105835.780
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105836.786
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105837.788
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105838.805
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105839.822
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105840.847
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105841.858
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105842.868
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.UpdateUI() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 44
+
+
+20221228_105843.881
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ComPortApp.Ftdi.FtdiDevice.<>c.<GetAvailableSerialNumbers>b__12_0(FT_DEVICE_INFO_NODE i) in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 76
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ComPortApp.Ftdi.FtdiDevice.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Ftdi\FtdiDevice.cs:line 75
+   at ComPortApp.Models.FtdiDeviceModel.GetAvailableSerialNumbers() in C:\Users\User\Source\Repos\ArduinoControlApp\Models\FtdiDeviceModel.cs:line 38
+   at ComPortApp.ViewModels.FtdiDeviceControlViewModel.RefreshSerialNumbersList() in C:\Users\User\Source\Repos\ArduinoControlApp\ViewModels\FtdiDeviceControlViewModel.cs:line 55
+   at ComPortApp.View

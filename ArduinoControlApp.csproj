@@ -58,6 +58,7 @@
     <Compile Include="Commands\MakeToneCommand.cs" />
     <Compile Include="Commands\DeviceControlStartStopCommand.cs" />
     <Compile Include="Commands\SendPackageCommand.cs" />
+    <Compile Include="Converters\IsNotNullConverter.cs" />
     <Compile Include="Ftdi\FTD2XX_NET.cs" />
     <Compile Include="Ftdi\FtdiDevice.cs" />
     <Compile Include="Models\FtdiDeviceModel.cs" />

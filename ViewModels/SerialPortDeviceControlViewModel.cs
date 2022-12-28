@@ -7,9 +7,9 @@ namespace ComPortApp.ViewModels
 {
     internal class SerialPortDeviceControlViewModel : BaseDeviceControlViewModel
     {
-        private readonly SerialPortDeviceModel _deviceModel = new SerialPortDeviceModel();
+        private readonly SerialPortDeviceModel _serialPortDeviceModel = new SerialPortDeviceModel();
         private string _selectedPort;
-        private int _selectedSpeed;
+        private int _selectedSpeed = 9600;
 
         public ObservableCollection<string> PortsList { get; }
         public ObservableCollection<int> SpeedsList { get; }
@@ -19,13 +19,10 @@ namespace ComPortApp.ViewModels
             get => _selectedPort;
             set
             {
-                if (_selectedPort != value)
-                {
-                    _selectedPort = value;
-                    RaisePropertyChanged();
+                _selectedPort = value;
+                RaisePropertyChanged();
 
-                    _deviceModel.PortName = _selectedPort;
-                }
+                _serialPortDeviceModel.PortName = _selectedPort;
             }
         }
 
@@ -34,13 +31,10 @@ namespace ComPortApp.ViewModels
             get => _selectedSpeed;
             set
             {
-                if (_selectedSpeed != value)
-                {
-                    _selectedSpeed = value;
-                    RaisePropertyChanged();
+                _selectedSpeed = value;
+                RaisePropertyChanged();
 
-                    _deviceModel.Baudrate = _selectedSpeed;
-                }
+                _serialPortDeviceModel.Baudrate = _selectedSpeed;
             }
         }
 
@@ -61,6 +55,8 @@ namespace ComPortApp.ViewModels
                 }
 
                 SelectedSpeed = SpeedsList?.FirstOrDefault() ?? 9600;
+
+                DeviceModel = _serialPortDeviceModel;
             }
             catch (Exception ex)
             {
@@ -131,7 +127,7 @@ namespace ComPortApp.ViewModels
         {
             try
             {
-                return _deviceModel?.GetAvailable() ?? Array.Empty<string>();
+                return _serialPortDeviceModel?.GetAvailablePorts() ?? Array.Empty<string>();
             }
             catch (Exception ex)
             {

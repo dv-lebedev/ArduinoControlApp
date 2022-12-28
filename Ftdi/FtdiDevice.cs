@@ -1,18 +1,28 @@
 ﻿using ComPortApp.Monitor;
 using FTD2XX_NET;
 using System;
+using System.Linq;
 
 namespace ComPortApp.Ftdi
 {
     internal class FtdiDevice : IDevice
     {
+        private string _serialNumber;
         private readonly FTDI ftdi = new FTDI();
+        private readonly static FTDI _detector = new FTDI();
 
-        public string SerialNumber { get; private set; }
-
-        public FtdiDevice(string serialNumber)
+        public string SerialNumber
         {
-            SerialNumber = serialNumber ?? throw new ArgumentNullException(nameof(serialNumber));
+            get => _serialNumber;
+
+            set
+            {
+                _serialNumber = value ?? throw new ArgumentException(nameof(SerialNumber));
+            }
+        }
+
+        public FtdiDevice()
+        {
         }
 
         public void Close()
@@ -46,6 +56,21 @@ namespace ComPortApp.Ftdi
         {
             uint numBytesWritten = 0;
             ftdi?.Write(buffer, count, ref numBytesWritten);
+        }
+
+        public static string[] GetAvailableSerialNumbers()
+        {
+            FTDI.FT_DEVICE_INFO_NODE[] nodes = new FTDI.FT_DEVICE_INFO_NODE[1024];
+
+            if (_detector.GetDeviceList(nodes) == FTDI.FT_STATUS.FT_OK)
+            {
+                return nodes
+                    .Where(i => !string.IsNullOrEmpty(i?.SerialNumber))
+                    .Select(i => i.SerialNumber)
+                    .ToArray();
+            }
+
+            return new string[0];
         }
     }
 }

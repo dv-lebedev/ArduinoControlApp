@@ -16,10 +16,25 @@ namespace ComPortApp.Monitor
         CancellationTokenSource             _transCts;
         double                              _receivedSpeed;
         double                              _transmitSpeed;
+        bool                                _isConnected;
+        static DeviceModel                  _currentDeviceModel;
 
         public event EventHandler Connected;
         public event EventHandler Disconnected;
+        public static event EventHandler CurrentDeviceModelChanged;
 
+        public static DeviceModel CurrentDeviceModel
+        {
+            get => _currentDeviceModel;
+            set
+            {
+                if (_currentDeviceModel != value)
+                {
+                    _currentDeviceModel = value;
+                    CurrentDeviceModelChanged?.Invoke(null, EventArgs.Empty);
+                }
+            }
+        }
         public RCoder                       Coder { get; } = new RCoder();
         public IDataConsumer                DataConsumer { get; set; }
 
@@ -56,6 +71,19 @@ namespace ComPortApp.Monitor
             }
         }
 
+        public bool IsConnected
+        {
+            get => _isConnected;
+
+            protected set
+            {
+                if (_isConnected != value)
+                {
+                    _isConnected = value;
+                }
+            }
+        }
+
         public DeviceModel() 
         {
             if (Coder != null)
@@ -69,20 +97,22 @@ namespace ComPortApp.Monitor
             DataConsumer?.Consume(e);
         }
 
-        public string[] GetAvailable()
-        {
-            return ComPortDevice.GetAvailable();
-        }
-
         protected abstract void InitCurrentDevice();
 
         public void Connect()
         {
+            if (CurrentDeviceModel != null && CurrentDeviceModel.IsConnected)
+            {
+                CurrentDeviceModel.Disconnect();
+            }
+
             InitCurrentDevice();
 
             if (_currentDevice != null)
             {
                 _currentDevice.Open();
+
+                IsConnected = true;
 
                 _recCts = new CancellationTokenSource();
                 Task.Run(() => Receiver(_recCts.Token), _recCts.Token);
@@ -148,6 +178,7 @@ namespace ComPortApp.Monitor
             {
                 ReceivedSpeed = 0;
                 Disconnected?.Invoke(this, EventArgs.Empty);
+                IsConnected = false;
             }
         }
 
@@ -195,6 +226,7 @@ namespace ComPortApp.Monitor
             {
                 TransmitSpeed = 0;
                 //Disconnected?.Invoke(this, new EventArgs());
+                IsConnected = false;
             }
         }
     }
