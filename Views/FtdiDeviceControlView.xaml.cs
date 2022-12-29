@@ -21,7 +21,6 @@ namespace ArduinoControlApp.Views
         public FtdiDeviceControlView()
         {
             InitializeComponent();
-            DataContext = new FtdiDeviceControlViewModel { };
         }
     }
 }

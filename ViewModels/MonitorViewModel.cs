@@ -19,11 +19,13 @@ using ArduinoControlApp.Interfaces;
 using ArduinoControlApp.Models;
 using ArduinoControlApp.Utils;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Threading;
 
 namespace ArduinoControlApp.ViewModels
@@ -42,6 +44,7 @@ namespace ArduinoControlApp.ViewModels
         public SendPackageCommand                   SendPackageCommand { get; }
         public Statistics                           Stats { get; }
         public ObservableRangeCollection<Package>   RecentPackage { get; }
+        public ICommand ClearCommand { get; }
 
         public bool Enabled
         {
@@ -123,6 +126,8 @@ namespace ArduinoControlApp.ViewModels
                     }
                 };
 
+                ClearCommand = new MonitorClearCommand(this);
+
                 _timer = new DispatcherTimer(
                     new TimeSpan(0, 0, 1),
                     DispatcherPriority.Normal,
@@ -163,7 +168,17 @@ namespace ArduinoControlApp.ViewModels
             {
                 lock (_locker)
                 {
-                    RecentPackage.Add(package);
+                    if (Stats.SelectedAddrs.Count == 0)
+                    {
+                        RecentPackage.Add(package);
+                    }
+                    else
+                    {
+                        if (Stats.SelectedAddrs.Contains(package.Addr))
+                        {
+                            RecentPackage.Add(package);
+                        }
+                    }
                 }
 
                 Stats.Update(package);

@@ -11,6 +11,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+using System;
 using System.ComponentModel;
 
 namespace ArduinoControlApp.Entities
@@ -23,15 +24,23 @@ namespace ArduinoControlApp.Entities
         long _crcHeaderErr;
         long _crcOverallErr;
 
+        public event EventHandler CheckedEvent;
+
         public bool Checked
         {
-            get => _checked; 
-            set => _checked = value;
+            get => _checked;
+
+            set
+            {
+                _checked = value;
+                CheckedEvent?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         public byte Address
         {
             get => _address;
+
             set
             {
                 _address = value;
@@ -41,6 +50,7 @@ namespace ArduinoControlApp.Entities
         public long Count
         {
             get => _count;
+
             set
             {
                 _count = value;
@@ -50,6 +60,7 @@ namespace ArduinoControlApp.Entities
         public long CrcHeaderErr
         {
             get => _crcHeaderErr;
+
             set 
             { 
                 _crcHeaderErr = value;
@@ -59,6 +70,7 @@ namespace ArduinoControlApp.Entities
         public long CrcOverallErr
         {
             get => _crcOverallErr;
+
             set
             {
                 _crcOverallErr = value;

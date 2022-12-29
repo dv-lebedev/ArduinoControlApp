@@ -123,7 +123,7 @@ namespace ArduinoControlApp.Coder
                         continue;
                     }
 
-                    Package p = new Package();
+                    var p = new Package { };
 
                     p.Timestamp = DateTime.Now;
                     p.Addr = _buffer[ptr + 2];
@@ -131,6 +131,8 @@ namespace ArduinoControlApp.Coder
                     p.CrcHeader = headerCrc;
                     p.Data = new byte[packageSize];
                     p.CrcOverall = overallCrc;
+                    p.CrcHeaderErr = headerCrcErr;
+                    p.OverallCrcErr = overallCrcErr;
  
                     Buffer.BlockCopy(_buffer, ptr + 6, p.Data, 0, packageSize);
 

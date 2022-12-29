@@ -21,7 +21,6 @@ namespace ArduinoControlApp.Views
         public SerialPortDeviceControlView()
         {
             InitializeComponent();
-            DataContext = new SerialPortDeviceControlViewModel { };
         }
     }
 }

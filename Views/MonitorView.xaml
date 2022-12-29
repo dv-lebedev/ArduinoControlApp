@@ -36,15 +36,19 @@
                   Grid.Column="0"
                   Margin="10 5"
                   BorderBrush="LightGray"
-                  ItemsSource="{Binding Stats.Items}"
-                  IsReadOnly="True"
+                  ItemsSource="{Binding Stats.Items, IsAsync=True}"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="False"
                   AutoGenerateColumns="False"
                   HorizontalGridLinesBrush="LightGray"
                   GridLinesVisibility="Horizontal">
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn Header="" Binding="{Binding Checked}"/>
-                <DataGridTextColumn Header="addr" Binding="{Binding Address,StringFormat={}0x{0:X2}}"/>
-                <DataGridTextColumn Header="packages" Binding="{Binding Count}"/>
+                <DataGridCheckBoxColumn Header="" Binding="{Binding Checked, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False"/>
+                <DataGridTextColumn Header="addr" Binding="{Binding Address, StringFormat={}0x{0:X2}}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="packages" Binding="{Binding Count}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="crc header" Binding="{Binding CrcHeaderErr}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="crc overall" Binding="{Binding CrcOverallErr}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -89,7 +93,7 @@
                  Height="23"
                  Text="{Binding InputDataAsString, Converter={StaticResource inputDataConverter}, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Content="send >>>"
+        <Button Content="SEND >>>"
                 Command="{Binding SendPackageCommand}"
                 Grid.Row="0"
                 Grid.Column="2"
@@ -97,6 +101,11 @@
                 Width="120"
                 Margin="5 0 5 0"
                 HorizontalAlignment="Right"/>
+
+        <Button Grid.Row="2"
+                Grid.ColumnSpan="3"
+                Content="CLEAR" 
+                Command="{Binding ClearCommand}"/>
 
     </Grid>
 </UserControl>

@@ -46,10 +46,7 @@ namespace ArduinoControlApp.ViewModels
             {
                 base.UpdateUI();
 
-                //if (!Enabled)
-                {
-                    RefreshSerialNumbersList();
-                }
+                RefreshSerialNumbersList();
             }
             catch (Exception ex)
             {

@@ -8,6 +8,12 @@
         Title="RCoder Monitor" 
         Height="800"
         Width="1000">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+        </Style>
+    </Window.Resources>
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>

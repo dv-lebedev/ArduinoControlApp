@@ -30,6 +30,7 @@ namespace ArduinoControlApp.ViewModels
         public double ReceivedSpeed
         {
             get => _receivedSpeed;
+
             protected set
             {
                 if (_receivedSpeed != value)
@@ -43,6 +44,7 @@ namespace ArduinoControlApp.ViewModels
         public double TransmitSpeed
         {
             get => _transmitSpeed;
+
             protected set
             {
                 if (_transmitSpeed != value)
@@ -56,6 +58,7 @@ namespace ArduinoControlApp.ViewModels
         public DeviceModel DeviceModel
         {
             get => _deviceModel;
+
             protected set
             {
                 if (_deviceModel != value)
@@ -92,8 +95,6 @@ namespace ArduinoControlApp.ViewModels
             {
                 ReceivedSpeed = DeviceModel?.ReceivedSpeed ?? 0;
                 TransmitSpeed = DeviceModel?.TransmitSpeed ?? 0;
-
-                RaisePropertyChanged(nameof(BaseDeviceControlViewModel));
             }
             catch (Exception ex)
             {

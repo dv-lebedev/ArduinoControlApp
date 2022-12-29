@@ -12,6 +12,7 @@ limitations under the License.
 */
 
 using ArduinoControlApp.Ftdi;
+using ArduinoControlApp.Interfaces;
 using System;
 
 namespace ArduinoControlApp.Models
@@ -29,15 +30,12 @@ namespace ArduinoControlApp.Models
             }
         }
 
-        protected override void InitCurrentDevice()
+        protected override IDevice CreateDeviceBeforeConnect()
         {
-            var ftdi = new FtdiDevice
+            return new FtdiDevice
             {
                 SerialNumber = SerialNumber
             };
-
-            CurrentDevice = ftdi;
-            CurrentDeviceModel = this;
         }
 
         public string[] GetAvailableSerialNumbers()

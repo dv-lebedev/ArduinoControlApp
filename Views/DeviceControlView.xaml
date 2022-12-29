@@ -4,16 +4,49 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:views="clr-namespace:ArduinoControlApp.Views"
+             xmlns:models="clr-namespace:ArduinoControlApp.Models" 
+             xmlns:vm="clr-namespace:ArduinoControlApp.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <vm:SerialPortDeviceControlViewModel x:Key="serialPortVM"/>
+        <vm:FtdiDeviceControlViewModel x:Key="ftdiVM"/>
+    </UserControl.Resources>
     <GroupBox Header="Connection">
         <Grid>
             <TabControl Grid.Row="0">
-                <TabItem Header="SerialPort">
-                    <views:SerialPortDeviceControlView/>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock 
+                            Text="SERIAL PORT" FontSize="11" FontWeight="Medium" Padding="5,0" Margin="-5,0">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding DeviceModel.IsConnected, Source={StaticResource serialPortVM}}" Value="True">
+                                            <Setter Property="Background" Value="LightGreen"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </TabItem.Header>
+                    <views:SerialPortDeviceControlView DataContext="{StaticResource serialPortVM}"/>
                 </TabItem>
-                <TabItem Header="FTDI">
-                    <views:FtdiDeviceControlView/>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock Text="FTDI" FontSize="11" FontWeight="Medium" Padding="5,0" Margin="-5,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding DeviceModel.IsConnected, Source={StaticResource ftdiVM}}" Value="True">
+                                        <Setter Property="Background" Value="LightGreen"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                        </TextBlock>
+                    </TabItem.Header>
+                    <views:FtdiDeviceControlView DataContext="{StaticResource ftdiVM}"/>
                 </TabItem>
             </TabControl>
         </Grid>

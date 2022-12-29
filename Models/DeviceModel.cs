@@ -40,18 +40,6 @@ namespace ArduinoControlApp.Models
         public static event EventHandler CurrentDeviceModelChanged;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public static DeviceModel CurrentDeviceModel
-        {
-            get => _currentDeviceModel;
-            set
-            {
-                if (_currentDeviceModel != value)
-                {
-                    _currentDeviceModel = value;
-                    CurrentDeviceModelChanged?.Invoke(null, EventArgs.Empty);
-                }
-            }
-        }
         public RCoder                       Coder { get; } = new RCoder();
         public IDataConsumer                DataConsumer { get; set; }
 
@@ -105,6 +93,20 @@ namespace ArduinoControlApp.Models
             }
         }
 
+        public static DeviceModel CurrentDeviceModel
+        {
+            get => _currentDeviceModel;
+
+            set
+            {
+                if (_currentDeviceModel != value)
+                {
+                    _currentDeviceModel = value;
+                    CurrentDeviceModelChanged?.Invoke(null, EventArgs.Empty);
+                }
+            }
+        }
+
         public DeviceModel() 
         {
             if (Coder != null)
@@ -118,7 +120,7 @@ namespace ArduinoControlApp.Models
             DataConsumer?.Consume(e);
         }
 
-        protected abstract void InitCurrentDevice();
+        protected abstract IDevice CreateDeviceBeforeConnect();
 
         public void Connect()
         {
@@ -127,10 +129,12 @@ namespace ArduinoControlApp.Models
                 CurrentDeviceModel.Disconnect();
             }
 
-            InitCurrentDevice();
-
+            _currentDevice = CreateDeviceBeforeConnect();
+            
             if (_currentDevice != null)
             {
+                CurrentDeviceModel = this;
+
                 _currentDevice.Opened += (s, e) =>
                 {
                     IsConnected = true;

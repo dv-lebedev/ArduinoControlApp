@@ -15,15 +15,19 @@ limitations under the License.
 using ArduinoControlApp.Coder;
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace ArduinoControlApp.Entities
 {
     public class Statistics
     {
-        private readonly ConcurrentDictionary<byte, StatisticItem> _internalItems;
+        readonly object                                     _lock = new object();           
+        readonly ConcurrentDictionary<byte, StatisticItem>  _internalItems;
+        readonly List<byte>                                 _selectedAddrs = new List<byte> { };
 
         public ObservableCollection<StatisticItem> Items { get; }
+        public List<byte> SelectedAddrs { get { return _selectedAddrs; } }
 
         public Statistics()
         {
@@ -45,11 +49,24 @@ namespace ArduinoControlApp.Entities
                     Address = package.Addr,
                 };
 
+                item.CheckedEvent += (s, e) =>
+                {
+                    if (item.Checked)
+                    {
+                        _selectedAddrs.Add(item.Address);
+                    }
+                    else
+                    {
+                        _selectedAddrs.Remove(item.Address);
+                    }
+                };
+
                 App.Current?.Dispatcher?.Invoke(() =>
                 {
                     if (_internalItems.TryAdd(package.Addr, item))
                     {
-                        Items.Add(item);
+                            Items.Add(item);
+                        
                     }
                 });
             }
@@ -57,6 +74,21 @@ namespace ArduinoControlApp.Entities
             item.Count++;
             item.CrcHeaderErr += package.CrcHeaderErr ? 1 : 0;
             item.CrcOverallErr += package.OverallCrcErr ? 1 : 0;
+        }
+
+        public void Clear()
+        {
+            _internalItems.Clear();
+
+            try
+            {
+                Items.Clear();
+                System.Threading.Thread.Sleep(150);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Logger.Log.Err(ex);
+            }
         }
 
         public void Refresh()

@@ -11,6 +11,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+using ArduinoControlApp.Interfaces;
 using ArduinoControlApp.Serial;
 using System;
 
@@ -57,10 +58,9 @@ namespace ArduinoControlApp.Models
             }
         }
 
-        protected override void InitCurrentDevice()
+        protected override IDevice CreateDeviceBeforeConnect()
         {
-            CurrentDevice = new ComPortDevice(PortName, Baudrate);
-            CurrentDeviceModel = this;
+            return new ComPortDevice(PortName, Baudrate);
         }
 
         public string[] GetAvailablePorts()
@@ -68,5 +68,4 @@ namespace ArduinoControlApp.Models
             return ComPortDevice.GetAvailable();
         }
     }
-
 }

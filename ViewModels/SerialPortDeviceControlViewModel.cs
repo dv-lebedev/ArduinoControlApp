@@ -37,6 +37,7 @@ namespace ArduinoControlApp.ViewModels
         public string SelectedPort
         {
             get => _selectedPort;
+
             set
             {
                 _selectedPort = value;
@@ -49,6 +50,7 @@ namespace ArduinoControlApp.ViewModels
         public int SelectedSpeed
         {
             get => _selectedSpeed;
+
             set
             {
                 _selectedSpeed = value;
