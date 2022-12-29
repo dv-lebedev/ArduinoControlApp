@@ -22,24 +22,10 @@ namespace ArduinoControlApp.ViewModels
     {
         DeviceModel                 _deviceModel;
         readonly DispatcherTimer    _timer;
-        bool                        _enabled;
         double                      _receivedSpeed;
         double                      _transmitSpeed;
 
         public DeviceControlStartStopCommand DeviceControlStartStopCommand { get; }
-
-        public bool Enabled
-        {
-            get => _enabled;
-            private set
-            {
-                if (_enabled != value)
-                {
-                    _enabled = value;
-                    RaisePropertyChanged();
-                }
-            }
-        }
 
         public double ReceivedSpeed
         {
@@ -75,11 +61,6 @@ namespace ArduinoControlApp.ViewModels
                 if (_deviceModel != value)
                 {
                     _deviceModel = value;
-
-                    if (_deviceModel != null)
-                    {
-                        _deviceModel.Disconnected += (s, _) => Enabled = false;
-                    }
                 }
 
                 RaisePropertyChanged();
@@ -123,13 +104,11 @@ namespace ArduinoControlApp.ViewModels
         public void Start()
         {
             DeviceModel?.Connect();
-            Enabled = true;
         }
 
         public void Stop()
         {
             DeviceModel?.Disconnect();
-            Enabled = false;
         }
     }
 }

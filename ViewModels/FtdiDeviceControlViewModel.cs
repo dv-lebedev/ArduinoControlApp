@@ -30,7 +30,7 @@ namespace ArduinoControlApp.ViewModels
 
             set
             {
-                _ftdiDeviceModel.SerialNumber = value ?? throw new ArgumentException(nameof(SelectedSerialNumber));
+                _ftdiDeviceModel.SerialNumber = value ?? string.Empty;
                 RaisePropertyChanged();
             }
         }
@@ -46,7 +46,7 @@ namespace ArduinoControlApp.ViewModels
             {
                 base.UpdateUI();
 
-                if (!Enabled)
+                //if (!Enabled)
                 {
                     RefreshSerialNumbersList();
                 }
@@ -80,6 +80,16 @@ namespace ArduinoControlApp.ViewModels
                 {
                     SerialNumbers.Add(fresh);
                 }
+            }
+
+            if (string.IsNullOrEmpty(SelectedSerialNumber) && SerialNumbers.Count > 0)
+            {
+                SelectedSerialNumber = SerialNumbers[0];
+            }
+
+            if (_ftdiDeviceModel.IsConnected && !available.Contains(SelectedSerialNumber))
+            {
+                _ftdiDeviceModel.Disconnect(false);
             }
         }
     }

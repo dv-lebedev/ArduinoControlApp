@@ -21,5 +21,8 @@ namespace ArduinoControlApp.Interfaces
         void Close();
         int Read(byte[] buffer, int offset, int count);
         void Write(byte[] buffer, int offset, int count);
+        bool IsOpened { get; }
+        event EventHandler Opened;
+        event EventHandler Closed;
     }
 }

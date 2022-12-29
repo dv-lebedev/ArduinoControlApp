@@ -37,7 +37,7 @@ namespace ArduinoControlApp.Commands
         {
             try
             {
-                if (!_vm.Enabled)
+                if (!_vm.DeviceModel?.IsConnected ?? true)
                 {
                     _vm.Start();
                 }

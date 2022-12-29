@@ -9,13 +9,15 @@
         <Grid.Resources>
             <ResourceDictionary>
                 <converters:SpeedWithSizeSuffixConverter x:Key="speedConverter"/>
+                <converters:BoolInverseConverter x:Key="boolInverseConverter"/>
                 <converters:IsNotNullConverter x:Key="isNotNullConverter"/>
             </ResourceDictionary>
         </Grid.Resources>
         <StackPanel Orientation="Horizontal" Margin="5">
             <ComboBox Height="23" MinWidth="150" 
                       ItemsSource="{Binding SerialNumbers}"
-                      SelectedItem="{Binding SelectedSerialNumber}"/>
+                      SelectedItem="{Binding SelectedSerialNumber}"
+                      IsEnabled="{Binding DeviceModel.IsConnected, Converter={StaticResource boolInverseConverter}}"/>
             <Button Command="{Binding DeviceControlStartStopCommand}"
                     IsEnabled="{Binding SelectedSerialNumber, Converter={StaticResource isNotNullConverter}}">
                 <Button.Style>
@@ -25,7 +27,7 @@
                         <Setter Property="Height" Value="23"/>
                         <Setter Property="Content" Value="connect"/>
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding Enabled}" Value="True">
+                            <DataTrigger Binding="{Binding DeviceModel.IsConnected}" Value="True">
                                 <Setter Property="Content" Value="disconnect"/>
                             </DataTrigger>
                         </Style.Triggers>

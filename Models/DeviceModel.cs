@@ -16,12 +16,13 @@ using ArduinoControlApp.Interfaces;
 using ArduinoControlApp.Utils;
 using System;
 using System.Collections.Concurrent;
+using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace ArduinoControlApp.Models
 {
-    public abstract class DeviceModel
+    public abstract class DeviceModel : INotifyPropertyChanged
     {
         readonly ConcurrentQueue<byte[]>    _transmitQueue = new ConcurrentQueue<byte[]>();
         readonly Speedometer                _recSpeed = new Speedometer();
@@ -37,6 +38,7 @@ namespace ArduinoControlApp.Models
         public event EventHandler Connected;
         public event EventHandler Disconnected;
         public static event EventHandler CurrentDeviceModelChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public static DeviceModel CurrentDeviceModel
         {
@@ -56,6 +58,7 @@ namespace ArduinoControlApp.Models
         public IDevice CurrentDevice
         {
             get => _currentDevice;
+
             protected set
             {
                 _currentDevice = value;
@@ -65,6 +68,7 @@ namespace ArduinoControlApp.Models
         public double ReceivedSpeed
         {
             get => _receivedSpeed;
+
             private set
             {
                 if (_receivedSpeed != value)
@@ -77,6 +81,7 @@ namespace ArduinoControlApp.Models
         public double TransmitSpeed
         {
             get => _transmitSpeed;
+
             private set
             {
                 if (_transmitSpeed != value)
@@ -95,6 +100,7 @@ namespace ArduinoControlApp.Models
                 if (_isConnected != value)
                 {
                     _isConnected = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsConnected)));
                 }
             }
         }
@@ -125,25 +131,32 @@ namespace ArduinoControlApp.Models
 
             if (_currentDevice != null)
             {
-                _currentDevice.Open();
+                _currentDevice.Opened += (s, e) =>
+                {
+                    IsConnected = true;
 
-                IsConnected = true;
+                    _recCts = new CancellationTokenSource();
+                    Task.Run(() => Receiver(_recCts.Token), _recCts.Token);
 
-                _recCts = new CancellationTokenSource();
-                Task.Run(() => Receiver(_recCts.Token), _recCts.Token);
+                    _transCts = new CancellationTokenSource();
+                    Task.Run(() => Transmitter(_transCts.Token), _transCts.Token);
 
-                _transCts = new CancellationTokenSource();
-                Task.Run(() => Transmitter(_transCts.Token), _transCts.Token);
+                    Connected?.Invoke(this, EventArgs.Empty);
+                };
 
-                Connected?.Invoke(this, EventArgs.Empty);
+                _currentDevice.Open();             
             }
         }
 
-        public void Disconnect()
+        public void Disconnect(bool closeDevice = true)
         {
             _recCts?.Cancel();
             _transCts?.Cancel();
-            _currentDevice?.Close();
+
+            if (closeDevice)
+            {
+                _currentDevice?.Close();
+            }
         }
 
         public void Write(byte addr, byte[] data)

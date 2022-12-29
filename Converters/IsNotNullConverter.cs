@@ -21,7 +21,12 @@ namespace ArduinoControlApp.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value != null;
+            if (value is string str)
+            {
+                return !string.IsNullOrEmpty(str);
+            }
+
+            return false;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

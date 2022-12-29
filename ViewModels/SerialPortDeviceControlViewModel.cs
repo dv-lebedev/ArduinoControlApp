@@ -20,9 +20,16 @@ namespace ArduinoControlApp.ViewModels
 {
     internal class SerialPortDeviceControlViewModel : BaseDeviceControlViewModel
     {
+        const int                           DefaultSpeed = 9600;
+
         readonly SerialPortDeviceModel      _serialPortDeviceModel = new SerialPortDeviceModel();
-        string                              _selectedPort;
-        int                                 _selectedSpeed = 9600;
+        string                              _selectedPort;                    
+        int                                 _selectedSpeed = DefaultSpeed;
+
+        readonly int[]                      _serialPortSpeeds = new[] 
+        { 
+            600, 1200, 1800, 2400, 4800, 7200, 9600, 19_200, 128_000, 230_400, 250_000, 256_000 
+        };
 
         public ObservableCollection<string> PortsList { get; }
         public ObservableCollection<int> SpeedsList { get; }
@@ -62,12 +69,12 @@ namespace ArduinoControlApp.ViewModels
 
                 SelectedPort = PortsList?.FirstOrDefault();
 
-                foreach (int speed in new[] { 9600, 19200, 128000, })
+                foreach (int speed in _serialPortSpeeds)
                 {
                     SpeedsList?.Add(speed);
                 }
 
-                SelectedSpeed = SpeedsList?.FirstOrDefault() ?? 9600;
+                SelectedSpeed = DefaultSpeed;
 
                 DeviceModel = _serialPortDeviceModel;
             }
@@ -83,10 +90,7 @@ namespace ArduinoControlApp.ViewModels
             {
                 base.UpdateUI();
 
-                if (!Enabled)
-                {
-                    RefreshPortsList();
-                }
+                RefreshPortsList();
             }
             catch (Exception ex)
             {

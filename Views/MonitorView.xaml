@@ -14,6 +14,9 @@
                 <converters:BoolInverseConverter x:Key="boolInverseConverter"/>
                 <converters:InputDataConverter x:Key="inputDataConverter"/>
                 <converters:BytexToHexStringConverter x:Key="bytexToHexStringConverter"/>
+                <DataTemplate x:Key="template">
+                    <TextBlock Text="0" HorizontalAlignment="Center"/>
+                </DataTemplate>
             </ResourceDictionary>
         </Grid.Resources>
 
@@ -50,6 +53,7 @@
                   Grid.Column="1"
                   Grid.Row="1"
                   Grid.ColumnSpan="2"
+                  Foreground="Black"
                   VirtualizingPanel.VirtualizationMode="Recycling"
                   VirtualizingPanel.IsContainerVirtualizable="True"
                   VirtualizingPanel.IsVirtualizing="True"
@@ -59,7 +63,7 @@
                 <GridView AllowsColumnReorder="true">
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Timestamp, StringFormat=yyyy.MM.dd HH:mm:ss.fff}" Header="time"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Addr, StringFormat={}0x{0:X2}}" Header="addr"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Size}" Header="size"/>
+                    <GridViewColumn CellTemplate="{StaticResource template}" DisplayMemberBinding="{Binding Path=Size}" Header="size"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Data, Converter={StaticResource bytexToHexStringConverter}}" Header="data"/>
                 </GridView>
             </ListView.View>

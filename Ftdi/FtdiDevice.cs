@@ -23,6 +23,7 @@ namespace ArduinoControlApp.Ftdi
         string                  _serialNumber;
         readonly FTDI           _ftdi = new FTDI();
         readonly static FTDI    _detector = new FTDI();
+        bool                    _isOpened;
 
         public string SerialNumber
         {
@@ -33,6 +34,19 @@ namespace ArduinoControlApp.Ftdi
                 _serialNumber = value ?? throw new ArgumentException(nameof(SerialNumber));
             }
         }
+
+        public bool IsOpened
+        {
+            get => _isOpened;
+
+            private set
+            {
+                _isOpened = value;
+            }
+        }
+
+        public event EventHandler Opened;
+        public event EventHandler Closed;
 
         public FtdiDevice()
         {
@@ -45,12 +59,20 @@ namespace ArduinoControlApp.Ftdi
 
         public void Dispose()
         {
-            _ftdi.Close();
+            if (_ftdi.Close() == FTDI.FT_STATUS.FT_OK)
+            {
+                IsOpened = false;
+                Closed?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         public void Open()
         {
-            _ftdi.OpenBySerialNumberExtended2(SerialNumber);
+            if (_ftdi.OpenBySerialNumberExtended2(SerialNumber) == FTDI.FT_STATUS.FT_OK)
+            {
+                IsOpened = true;
+                Opened?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         public int Read(byte[] buffer, int offset, int count)

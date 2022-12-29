@@ -19,7 +19,21 @@ namespace ArduinoControlApp.Serial
 {
     internal class ComPortDevice : IDevice
     {
-        readonly SerialPort _port;
+        readonly SerialPort     _port;
+        bool                    _isOpened;
+
+        public bool IsOpened
+        {
+            get => _isOpened;
+
+            private set
+            {
+                _isOpened = value;
+            }
+        }
+
+        public event EventHandler Opened;
+        public event EventHandler Closed;
 
         public ComPortDevice(string portName, int baudrate) 
         {
@@ -38,11 +52,19 @@ namespace ArduinoControlApp.Serial
             _port.RtsEnable = true;
         }
 
-        public void Open() => _port.Open();
-        
-        public void Dispose() => _port.Dispose();
-        
-        public void Close() =>_port.Close();
+        public void Open()
+        {
+            _port.Open();
+            IsOpened = true;
+            Opened?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void Close()
+        {
+            _port.Close();
+            IsOpened = false;
+            Closed?.Invoke(this, EventArgs.Empty);
+        }
         
         public int Read(byte[] buffer, int offset, int count)
         {
@@ -62,6 +84,17 @@ namespace ArduinoControlApp.Serial
         internal static string[] GetAvailable()
         {
             return SerialPort.GetPortNames();
+        }
+
+        public void Dispose()
+        {
+            _port.Dispose();
+
+            if (IsOpened)
+            {
+                IsOpened = false;
+                Closed?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 }
