@@ -56,7 +56,7 @@
 
         <ComboBox Grid.Row="0"
                   Grid.Column="0"
-                  Margin="10 5"
+                  Margin="0 5 5 5"
                   Height="23"
                   ItemsSource="{Binding Addresses}"
                   SelectedItem="{Binding Path=SelectedAddress}">
@@ -89,7 +89,7 @@
             
             <DataGrid 
                   DockPanel.Dock="Left"
-                  Margin="10 5"
+                  Margin="0 5 5 5"
                   BorderBrush="LightGray"
                   ItemsSource="{Binding Stats.Items, IsAsync=True}"
                   CanUserAddRows="False"
