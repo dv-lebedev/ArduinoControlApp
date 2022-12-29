@@ -14,7 +14,7 @@
     </UserControl.Resources>
     <GroupBox Header="Connection">
         <Grid>
-            <TabControl Grid.Row="0">
+            <TabControl>
                 <TabItem>
                     <TabItem.Header>
                         <TextBlock 

@@ -38,10 +38,12 @@
                     <Style TargetType="Button">
                         <Setter Property="Width" Value="120"/>
                         <Setter Property="Height" Value="23"/>
-                        <Setter Property="Content" Value="connect"/>
+                        <Setter Property="Content" Value="CONNECT"/>
+                        <Setter Property="FontSize" Value="11"/>
+                        <Setter Property="FontWeight" Value="Medium"/>
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding Enabled}" Value="True">
-                                <Setter Property="Content" Value="disconnect"/>
+                            <DataTrigger Binding="{Binding DeviceModel.IsConnected}" Value="True">
+                                <Setter Property="Content" Value="DISCONNECT"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
