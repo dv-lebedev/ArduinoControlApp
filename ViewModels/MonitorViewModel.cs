@@ -19,7 +19,6 @@ using ArduinoControlApp.Interfaces;
 using ArduinoControlApp.Models;
 using ArduinoControlApp.Utils;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -44,6 +43,7 @@ namespace ArduinoControlApp.ViewModels
         public SendPackageCommand                   SendPackageCommand { get; }
         public Statistics                           Stats { get; }
         public ObservableRangeCollection<Package>   RecentPackage { get; }
+        public ObservableRangeCollection<ProtocolErrorEventArgs> ProtocolErrors { get; }
         public ICommand ClearCommand { get; }
 
         public bool Enabled
@@ -107,6 +107,7 @@ namespace ArduinoControlApp.ViewModels
                 SendPackageCommand = new SendPackageCommand(this);
                 Stats = new Statistics();
                 RecentPackage = new ObservableRangeCollection<Package>();
+                ProtocolErrors = new ObservableRangeCollection<ProtocolErrorEventArgs>();
 
                 BindingOperations.EnableCollectionSynchronization(RecentPackage, this);
 
@@ -183,6 +184,14 @@ namespace ArduinoControlApp.ViewModels
 
                 Stats.Update(package);
             }
+        }
+
+        public void ProcessError(ProtocolErrorEventArgs err)
+        {
+            App.Current.Dispatcher.InvokeAsync(() =>
+            {
+                ProtocolErrors.Add(err);
+            });
         }
 
         internal void SendInputData()

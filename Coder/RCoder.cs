@@ -11,6 +11,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+using ArduinoControlApp.Entities;
 using System;
 using System.Diagnostics;
 
@@ -51,8 +52,7 @@ namespace ArduinoControlApp.Coder
         int _size;
 
         public event EventHandler<Package> OnPackageReceived;
-        public event EventHandler OnCrcHeaderError;
-        public event EventHandler OnCrcOverallError;
+        public event EventHandler<ProtocolErrorEventArgs> GotError;
 
         public RCoder()
         {
@@ -108,14 +108,32 @@ namespace ArduinoControlApp.Coder
                         return;
                     }
 
+                    DateTime timeStamp = DateTime.Now;
+
                     byte headerCrc = CRC8ATM.Get(_buffer, 5, ptr);
                     byte overallCrc = CRC8ATM.Get(_buffer, packageSize, ptr + 6);
 
                     bool headerCrcErr = headerCrc != _buffer[ptr + 5];
                     bool overallCrcErr = overallCrc != _buffer[lastByteIndex];
 
-                    if (headerCrcErr) Debug.WriteLine("[crc header]");
-                    if (overallCrcErr) Debug.WriteLine("[crc overall");
+                    if (headerCrcErr) 
+                    {
+                        GotError?.Invoke(this, new ProtocolErrorEventArgs
+                        {
+                             Timestamp = timeStamp,
+                             ErrorType = "crc header error",
+                             Offset = (ulong)ptr,
+                        });
+                    }
+                    if (overallCrcErr)
+                    {
+                        GotError?.Invoke(this, new ProtocolErrorEventArgs
+                        {
+                            Timestamp = timeStamp,
+                            ErrorType = "crc overall error",
+                            Offset = (ulong)ptr,
+                        });
+                    }
 
                     if (headerCrcErr || overallCrcErr)
                     {
@@ -125,7 +143,7 @@ namespace ArduinoControlApp.Coder
 
                     var p = new Package { };
 
-                    p.Timestamp = DateTime.Now;
+                    p.Timestamp = timeStamp;
                     p.Addr = _buffer[ptr + 2];
                     p.Size = packageSize;
                     p.CrcHeader = headerCrc;
@@ -142,8 +160,14 @@ namespace ArduinoControlApp.Coder
                 }
                 else
                 {
+                    GotError?.Invoke(this, new ProtocolErrorEventArgs
+                    {
+                        Timestamp = DateTime.Now,
+                        ErrorType = "garbage",
+                        Offset = (ulong)ptr,
+                    });
+
                     ptr++;
-                    Debug.WriteLine("[garbage] " + ptr);
                 }
             }
 

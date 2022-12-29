@@ -64,6 +64,7 @@
     <Compile Include="Commands\MonitorClearCommand.cs" />
     <Compile Include="Commands\SendPackageCommand.cs" />
     <Compile Include="Converters\IsNotNullConverter.cs" />
+    <Compile Include="Entities\ProtocolError.cs" />
     <Compile Include="Entities\Statistics.cs" />
     <Compile Include="Ftdi\FTD2XX_NET.cs" />
     <Compile Include="Ftdi\FtdiDevice.cs" />

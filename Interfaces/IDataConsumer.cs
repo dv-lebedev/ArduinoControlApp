@@ -12,11 +12,13 @@ limitations under the License.
 */
 
 using ArduinoControlApp.Coder;
+using ArduinoControlApp.Entities;
 
 namespace ArduinoControlApp.Interfaces
 {
     public interface IDataConsumer
     {
         void Consume(Package package);
+        void ProcessError(ProtocolErrorEventArgs err);
     }
 }

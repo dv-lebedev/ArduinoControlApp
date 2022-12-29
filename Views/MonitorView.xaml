@@ -32,31 +32,14 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Row="1"
-                  Grid.Column="0"
-                  Margin="10 5"
-                  BorderBrush="LightGray"
-                  ItemsSource="{Binding Stats.Items, IsAsync=True}"
-                  CanUserAddRows="False"
-                  CanUserDeleteRows="False"
-                  IsReadOnly="False"
-                  AutoGenerateColumns="False"
-                  HorizontalGridLinesBrush="LightGray"
-                  GridLinesVisibility="Horizontal">
-            <DataGrid.Columns>
-                <DataGridCheckBoxColumn Header="" Binding="{Binding Checked, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False"/>
-                <DataGridTextColumn Header="addr" Binding="{Binding Address, StringFormat={}0x{0:X2}}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="packages" Binding="{Binding Count}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="crc header" Binding="{Binding CrcHeaderErr}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="crc overall" Binding="{Binding CrcOverallErr}" IsReadOnly="True"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        
+ 
 
         <ListView ItemsSource="{Binding RecentPackage}"
                   x:Name="listView"
-                  Grid.Column="1"
+                  Grid.Column="0"
                   Grid.Row="1"
-                  Grid.ColumnSpan="2"
+                  Grid.ColumnSpan="3"
                   Foreground="Black"
                   VirtualizingPanel.VirtualizationMode="Recycling"
                   VirtualizingPanel.IsContainerVirtualizable="True"
@@ -102,7 +85,52 @@
                 Margin="5 0 5 0"
                 HorizontalAlignment="Right"/>
 
-        <Button Grid.Row="2"
+
+        <DockPanel Grid.Row="2"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3">
+            <DataGrid 
+                  DockPanel.Dock="Left"
+                  Margin="10 5"
+                  BorderBrush="LightGray"
+                  ItemsSource="{Binding Stats.Items, IsAsync=True}"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="False"
+                  AutoGenerateColumns="False"
+                  HorizontalGridLinesBrush="LightGray"
+                  GridLinesVisibility="Horizontal">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn Header="" Binding="{Binding Checked, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="addr" Binding="{Binding Address, StringFormat={}0x{0:X2}}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="packages" Binding="{Binding Count}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="crc header" Binding="{Binding CrcHeaderErr}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="crc overall" Binding="{Binding CrcOverallErr}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+            <ListView ItemsSource="{Binding ProtocolErrors, IsAsync=True}"
+              DockPanel.Dock="Right"
+                  Height="200"
+                  Foreground="Black"
+                  VirtualizingPanel.VirtualizationMode="Recycling"
+                  VirtualizingPanel.IsContainerVirtualizable="True"
+                  VirtualizingPanel.IsVirtualizing="True"
+                  Margin="0,5"
+                  BorderBrush="LightGray">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="true">
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Timestamp, StringFormat=yyyy.MM.dd HH:mm:ss.fff}" Header="time"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Offset}" Header="offset"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=ErrorType}" Header="error"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </DockPanel>
+
+        <Button Grid.Row="3"
                 Grid.ColumnSpan="3"
                 Content="CLEAR" 
                 Command="{Binding ClearCommand}"/>

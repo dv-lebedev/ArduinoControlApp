@@ -12,6 +12,7 @@ limitations under the License.
 */
 
 using ArduinoControlApp.Coder;
+using ArduinoControlApp.Entities;
 using ArduinoControlApp.Interfaces;
 using ArduinoControlApp.Utils;
 using System;
@@ -112,7 +113,13 @@ namespace ArduinoControlApp.Models
             if (Coder != null)
             {
                 Coder.OnPackageReceived += Coder_OnPackageReceived;
+                Coder.GotError += Coder_GotError;
             }
+        }
+
+        private void Coder_GotError(object sender, ProtocolErrorEventArgs e)
+        {
+            DataConsumer?.ProcessError(e);
         }
 
         private void Coder_OnPackageReceived(object sender, Package e)
