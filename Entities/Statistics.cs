@@ -21,13 +21,12 @@ using System.Collections.ObjectModel;
 namespace ArduinoControlApp.Entities
 {
     public class Statistics
-    {
-        readonly object                                     _lock = new object();           
+    {       
         readonly ConcurrentDictionary<byte, StatisticItem>  _internalItems;
         readonly List<byte>                                 _selectedAddrs = new List<byte> { };
 
         public ObservableCollection<StatisticItem> Items { get; }
-        public List<byte> SelectedAddrs { get { return _selectedAddrs; } }
+        public List<byte> SelectedAddrs => _selectedAddrs; 
 
         public Statistics()
         {
@@ -61,13 +60,12 @@ namespace ArduinoControlApp.Entities
                     }
                 };
 
-                App.Current?.Dispatcher?.Invoke(() =>
+                App.Current?.Dispatcher?.InvokeAsync(() =>
                 {
                     if (_internalItems.TryAdd(package.Addr, item))
                     {
-                            Items.Add(item);
-                        
-                    }
+                        Items.Add(item);
+                    }  
                 });
             }
 
@@ -93,7 +91,7 @@ namespace ArduinoControlApp.Entities
 
         public void Refresh()
         {
-            App.Current?.Dispatcher?.Invoke(() =>
+            App.Current?.Dispatcher?.InvokeAsync(() =>
             {
                 foreach (var item in _internalItems.Values)
                 {

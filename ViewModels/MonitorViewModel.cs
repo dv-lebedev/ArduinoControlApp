@@ -19,6 +19,7 @@ using ArduinoControlApp.Interfaces;
 using ArduinoControlApp.Models;
 using ArduinoControlApp.Utils;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -38,11 +39,16 @@ namespace ArduinoControlApp.ViewModels
         string                      _inputAsString;
         readonly object             _locker = new object();
 
+
+        readonly ConcurrentQueue<Package>                   _recentPackagesTemp;
+        readonly ConcurrentQueue<ProtocolErrorEventArgs>    _protocolErrorsTemp;
+        
+
         public event PropertyChangedEventHandler    PropertyChanged;
         public ObservableCollection<byte>           Addresses { get; }
         public SendPackageCommand                   SendPackageCommand { get; }
         public Statistics                           Stats { get; }
-        public ObservableRangeCollection<Package>   RecentPackage { get; }
+        public ObservableRangeCollection<Package>   RecentPackages { get; }
         public ObservableRangeCollection<ProtocolErrorEventArgs> ProtocolErrors { get; }
         public ICommand ClearCommand { get; }
 
@@ -106,10 +112,13 @@ namespace ArduinoControlApp.ViewModels
 
                 SendPackageCommand = new SendPackageCommand(this);
                 Stats = new Statistics();
-                RecentPackage = new ObservableRangeCollection<Package>();
+                RecentPackages = new ObservableRangeCollection<Package>();
                 ProtocolErrors = new ObservableRangeCollection<ProtocolErrorEventArgs>();
 
-                BindingOperations.EnableCollectionSynchronization(RecentPackage, this);
+                _recentPackagesTemp = new ConcurrentQueue<Package>();
+                _protocolErrorsTemp = new ConcurrentQueue<ProtocolErrorEventArgs>();
+
+                BindingOperations.EnableCollectionSynchronization(RecentPackages, this);
 
                 for (int i = 0; i < 256; i++)
                 {
@@ -130,7 +139,7 @@ namespace ArduinoControlApp.ViewModels
                 ClearCommand = new MonitorClearCommand(this);
 
                 _timer = new DispatcherTimer(
-                    new TimeSpan(0, 0, 1),
+                    new TimeSpan(0, 0, 0, 0, 500),
                     DispatcherPriority.Normal,
                     (s, e) => UpdateUI(),
                     System.Windows.Application.Current.Dispatcher);
@@ -146,16 +155,58 @@ namespace ArduinoControlApp.ViewModels
         {
             try
             {
-                lock (_locker)
+                // update data
+                int count = _recentPackagesTemp.Count;
+
+                while (count > 0)
                 {
-                    if (RecentPackage.Count > 10_000)
+                    if (_recentPackagesTemp.TryDequeue(out Package package))
                     {
-                        RecentPackage.RemoveFirst(RecentPackage.Count / 4);
-                        Debug.WriteLine("CLEAN");
+                        if (Stats.SelectedAddrs.Count == 0)
+                        {
+                            RecentPackages.Add(package);
+                        }
+                        else
+                        {
+                            if (Stats.SelectedAddrs.Contains(package.Addr))
+                            {
+                                RecentPackages.Add(package);
+                            }
+                        }
+
+                        Stats.Update(package);
+                    }
+
+                    count--;
+                }
+
+                if (RecentPackages.Count > 10_000)
+                {
+                    RecentPackages.RemoveFirst(RecentPackages.Count / 4);
+                }
+
+                //update errors
+                count = _protocolErrorsTemp.Count;
+
+                if (count > 0)
+                {
+                    while (count > 0)
+                    {
+                        if (_protocolErrorsTemp.TryDequeue(out ProtocolErrorEventArgs err))
+                        {
+                            App.Current.Dispatcher.InvokeAsync(() => ProtocolErrors.Add(err));
+                        }
+
+                        count--;
                     }
                 }
 
-                App.Current.Dispatcher.Invoke(Stats.Refresh);
+                if (ProtocolErrors.Count > 10_000)
+                {
+                    ProtocolErrors.RemoveFirst(ProtocolErrors.Count / 4);
+                }
+
+                App.Current.Dispatcher.InvokeAsync(Stats.Refresh);
             }
             catch (Exception ex)
             {
@@ -167,31 +218,16 @@ namespace ArduinoControlApp.ViewModels
         {
             if (package != null)
             {
-                lock (_locker)
-                {
-                    if (Stats.SelectedAddrs.Count == 0)
-                    {
-                        RecentPackage.Add(package);
-                    }
-                    else
-                    {
-                        if (Stats.SelectedAddrs.Contains(package.Addr))
-                        {
-                            RecentPackage.Add(package);
-                        }
-                    }
-                }
-
-                Stats.Update(package);
+                _recentPackagesTemp.Enqueue(package);
             }
         }
 
         public void ProcessError(ProtocolErrorEventArgs err)
         {
-            App.Current.Dispatcher.InvokeAsync(() =>
+            if (err != null)
             {
-                ProtocolErrors.Add(err);
-            });
+                _protocolErrorsTemp.Enqueue(err);
+            }
         }
 
         internal void SendInputData()

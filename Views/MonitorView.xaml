@@ -41,7 +41,7 @@
                 <TextBlock Text="Data"/>
             </GroupBox.Header>
         
-        <ListView ItemsSource="{Binding RecentPackage}"
+        <ListView ItemsSource="{Binding RecentPackages}"
                   x:Name="listView"
                   Foreground="Black"
                   BorderThickness="0"
@@ -182,7 +182,7 @@
                         <TextBlock HorizontalAlignment="Center" Text="{Binding Timestamp, StringFormat=yyyy.MM.dd HH:mm:ss.fff}"/>
                     </DataTemplate>
                     <DataTemplate x:Key="OffsetTemplate">
-                        <TextBlock HorizontalAlignment="Center" Text="{Binding Offset}"/>
+                        <TextBlock HorizontalAlignment="Center" Margin="5 0" Text="{Binding Offset}"/>
                     </DataTemplate>
                     <DataTemplate x:Key="ErrorTemplate">
                         <TextBlock HorizontalAlignment="Center" Text="{Binding ErrorType}"/>
@@ -202,7 +202,7 @@
 
         <Button Grid.Row="3"
                 Grid.ColumnSpan="3"
-                Content="CLEAR" 
+                Content="CLEAN" 
                 Command="{Binding ClearCommand}"/>
 
     </Grid>

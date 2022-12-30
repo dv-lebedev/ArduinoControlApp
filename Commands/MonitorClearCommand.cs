@@ -23,7 +23,7 @@ namespace ArduinoControlApp.Commands
         public void Execute(object parameter)
         {
             _vm.Stats?.Clear();
-            _vm.RecentPackage?.Clear();
+            _vm.RecentPackages?.Clear();
             _vm.ProtocolErrors?.Clear();
         }
     }

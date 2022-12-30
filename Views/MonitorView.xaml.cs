@@ -25,7 +25,7 @@ namespace ArduinoControlApp.Views
             InitializeComponent();
 
             var vm = new MonitorViewModel();
-            vm.RecentPackage.CollectionChanged += MonitorView_CollectionChanged;
+            vm.RecentPackages.CollectionChanged += MonitorView_CollectionChanged;
             vm.ProtocolErrors.CollectionChanged += ProtocolErrors_CollectionChanged;
             DataContext = vm;
         }

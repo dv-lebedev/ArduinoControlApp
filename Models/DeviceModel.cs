@@ -175,9 +175,12 @@ namespace ArduinoControlApp.Models
             if (data == null) throw new ArgumentNullException(nameof(data));
             if (data.Length == 0) return;
 
-            byte[] package = RCoder.CreatePackage(addr, data);
+            if (IsConnected)
+            {
+                byte[] package = RCoder.CreatePackage(addr, data);
 
-            _transmitQueue.Enqueue(package);
+                _transmitQueue.Enqueue(package);
+            }
         }
 
         private void Receiver(CancellationToken ct)
