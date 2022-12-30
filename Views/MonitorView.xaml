@@ -168,7 +168,6 @@
             <ListView ItemsSource="{Binding ProtocolErrors, IsAsync=True}"
                   x:Name="errorList"
                   BorderThickness="0"
-                  Height="200"
                   Foreground="Black"
                   VirtualizingPanel.VirtualizationMode="Recycling"
                   VirtualizingPanel.IsContainerVirtualizable="True"

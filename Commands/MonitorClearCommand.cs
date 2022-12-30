@@ -24,6 +24,7 @@ namespace ArduinoControlApp.Commands
         {
             _vm.Stats?.Clear();
             _vm.RecentPackage?.Clear();
+            _vm.ProtocolErrors?.Clear();
         }
     }
 }
