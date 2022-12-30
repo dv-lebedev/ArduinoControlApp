@@ -26,10 +26,21 @@ namespace ArduinoControlApp.Views
 
             var vm = new MonitorViewModel();
             vm.RecentPackage.CollectionChanged += MonitorView_CollectionChanged;
+            vm.ProtocolErrors.CollectionChanged += ProtocolErrors_CollectionChanged;
             DataContext = vm;
         }
 
+        private void ProtocolErrors_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            ScrolToTheBottom(errorList, e);
+        }
+
         void MonitorView_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            ScrolToTheBottom(listView, e);
+        }
+
+        private void ScrolToTheBottom(ListView lv, NotifyCollectionChangedEventArgs e)
         {
             try
             {
@@ -37,16 +48,16 @@ namespace ArduinoControlApp.Views
                 {
                     if (e.Action == NotifyCollectionChangedAction.Add)
                     {
-                        int lastIndex = listView.Items.Count - 1;
+                        int lastIndex = lv.Items.Count - 1;
 
                         if (lastIndex < 0)
                         {
                             lastIndex = 0;
                         }
 
-                        if (listView.Items.Count > 0)
+                        if (lv.Items.Count > 0)
                         {
-                            listView.ScrollIntoView(listView.Items[lastIndex]);
+                            lv.ScrollIntoView(lv.Items[lastIndex]);
                         }
                     }
                 });

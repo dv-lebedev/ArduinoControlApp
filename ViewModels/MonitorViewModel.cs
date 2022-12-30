@@ -148,9 +148,9 @@ namespace ArduinoControlApp.ViewModels
             {
                 lock (_locker)
                 {
-                    if (RecentPackage.Count > 100_000)
+                    if (RecentPackage.Count > 1_000_000)
                     {
-                        RecentPackage.RemoveFirst(10_000);
+                        RecentPackage.RemoveFirst(100_000);
                         Debug.WriteLine("CLEAN");
                     }
                 }

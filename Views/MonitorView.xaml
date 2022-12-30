@@ -14,9 +14,10 @@
                 <converters:BoolInverseConverter x:Key="boolInverseConverter"/>
                 <converters:InputDataConverter x:Key="inputDataConverter"/>
                 <converters:BytexToHexStringConverter x:Key="bytexToHexStringConverter"/>
-                <DataTemplate x:Key="template">
-                    <TextBlock Text="0" HorizontalAlignment="Center"/>
-                </DataTemplate>
+   
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
             </ResourceDictionary>
         </Grid.Resources>
 
@@ -44,12 +45,29 @@
                   VirtualizingPanel.IsVirtualizing="True"
                   Margin="0,5"
                   BorderBrush="LightGray">
+            <ListView.Resources>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+                <DataTemplate x:Key="TimestampTemplate">
+                    <TextBlock HorizontalAlignment="Center" Text="{Binding Timestamp, StringFormat=yyyy.MM.dd HH:mm:ss.fff}"/>
+                </DataTemplate>
+                <DataTemplate x:Key="AddrTemplate">
+                    <TextBlock HorizontalAlignment="Center" Text="{Binding Addr, StringFormat={}0x{0:X2}}"/>
+                </DataTemplate>
+                <DataTemplate x:Key="SizeTemplate">
+                    <TextBlock HorizontalAlignment="Center" Text="{Binding Size}"/>
+                </DataTemplate>
+                <DataTemplate x:Key="HexDataTemplate">
+                    <TextBlock HorizontalAlignment="Left" Text="{Binding Path=Data, Converter={StaticResource bytexToHexStringConverter}}"/>
+                </DataTemplate>
+            </ListView.Resources>
             <ListView.View>
                 <GridView AllowsColumnReorder="true">
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Timestamp, StringFormat=yyyy.MM.dd HH:mm:ss.fff}" Header="time"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Addr, StringFormat={}0x{0:X2}}" Header="addr"/>
-                    <GridViewColumn CellTemplate="{StaticResource template}" DisplayMemberBinding="{Binding Path=Size}" Header="size"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Data, Converter={StaticResource bytexToHexStringConverter}}" Header="data"/>
+                    <GridViewColumn CellTemplate="{StaticResource TimestampTemplate}" Header="time"/>
+                    <GridViewColumn CellTemplate="{StaticResource AddrTemplate}" Header="addr"/>
+                    <GridViewColumn CellTemplate="{StaticResource SizeTemplate}" Header="size"/>
+                    <GridViewColumn CellTemplate="{StaticResource HexDataTemplate}" Header="data"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -98,17 +116,41 @@
                   AutoGenerateColumns="False"
                   HorizontalGridLinesBrush="LightGray"
                   GridLinesVisibility="Horizontal">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    </Style>
+                    <Style x:Key="tbStyle" TargetType="{x:Type TextBlock}" >
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="Margin" Value="5,0"/>
+                    </Style>
+                    <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                    <Style x:Key="WrappedColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding}" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </DataGrid.Resources>
                 <DataGrid.Columns>
                     <DataGridCheckBoxColumn Header="" Binding="{Binding Checked, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False"/>
-                    <DataGridTextColumn Header="addr" Binding="{Binding Address, StringFormat={}0x{0:X2}}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="packages" Binding="{Binding Count}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="crc header" Binding="{Binding CrcHeaderErr}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="crc overall" Binding="{Binding CrcOverallErr}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="addr" Binding="{Binding Address, StringFormat={}0x{0:X2}}" IsReadOnly="True" ElementStyle="{StaticResource tbStyle}"/>
+                    <DataGridTextColumn Header="packages" Binding="{Binding Count}" IsReadOnly="True" ElementStyle="{StaticResource tbStyle}"/>
+                    <DataGridTextColumn Header="crc header" Binding="{Binding CrcHeaderErr}" IsReadOnly="True" ElementStyle="{StaticResource tbStyle}"/>
+                    <DataGridTextColumn Header="crc overall" Binding="{Binding CrcOverallErr}" IsReadOnly="True" ElementStyle="{StaticResource tbStyle}"/>
                 </DataGrid.Columns>
             </DataGrid>
 
             <ListView ItemsSource="{Binding ProtocolErrors, IsAsync=True}"
-              DockPanel.Dock="Right"
+                  x:Name="errorList"
+                  DockPanel.Dock="Right"
                   Height="200"
                   Foreground="Black"
                   VirtualizingPanel.VirtualizationMode="Recycling"
@@ -116,11 +158,25 @@
                   VirtualizingPanel.IsVirtualizing="True"
                   Margin="0,5"
                   BorderBrush="LightGray">
+                <ListView.Resources>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                    <DataTemplate x:Key="TimestampTemplate">
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Timestamp, StringFormat=yyyy.MM.dd HH:mm:ss.fff}"/>
+                    </DataTemplate>
+                    <DataTemplate x:Key="OffsetTemplate">
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Offset}"/>
+                    </DataTemplate>
+                    <DataTemplate x:Key="ErrorTemplate">
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding ErrorType}"/>
+                    </DataTemplate>
+                </ListView.Resources>
                 <ListView.View>
                     <GridView AllowsColumnReorder="true">
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Timestamp, StringFormat=yyyy.MM.dd HH:mm:ss.fff}" Header="time"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Offset}" Header="offset"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=ErrorType}" Header="error"/>
+                        <GridViewColumn CellTemplate="{StaticResource TimestampTemplate}" Header="time"/>
+                        <GridViewColumn CellTemplate="{StaticResource OffsetTemplate}" Header="offset"/>
+                        <GridViewColumn CellTemplate="{StaticResource ErrorTemplate}" Header="error"/>
                     </GridView>
                 </ListView.View>
             </ListView>
