@@ -23,8 +23,8 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
@@ -33,13 +33,18 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
+
+        <GroupBox Grid.Column="0"
+                  Grid.Row="1"
+                  Grid.ColumnSpan="3">
+            <GroupBox.Header>
+                <TextBlock Text="Data"/>
+            </GroupBox.Header>
         
         <ListView ItemsSource="{Binding RecentPackage}"
                   x:Name="listView"
-                  Grid.Column="0"
-                  Grid.Row="1"
-                  Grid.ColumnSpan="3"
                   Foreground="Black"
+                  BorderThickness="0"
                   VirtualizingPanel.VirtualizationMode="Recycling"
                   VirtualizingPanel.IsContainerVirtualizable="True"
                   VirtualizingPanel.IsVirtualizing="True"
@@ -71,7 +76,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
+        </GroupBox>
+        
         <ComboBox Grid.Row="0"
                   Grid.Column="0"
                   Margin="0 5 5 5"
@@ -104,10 +110,15 @@
         <DockPanel Grid.Row="2"
                    Grid.Column="0"
                    Grid.ColumnSpan="3">
+
+            <GroupBox DockPanel.Dock="Left"
+                        Margin="0 5 5 5">
+                <GroupBox.Header>
+                    <TextBlock Text="Statistics"/>
+                </GroupBox.Header>
             
             <DataGrid 
-                  DockPanel.Dock="Left"
-                  Margin="0 5 5 5"
+                  BorderThickness="0"
                   BorderBrush="LightGray"
                   ItemsSource="{Binding Stats.Items, IsAsync=True}"
                   CanUserAddRows="False"
@@ -147,10 +158,16 @@
                     <DataGridTextColumn Header="crc overall" Binding="{Binding CrcOverallErr}" IsReadOnly="True" ElementStyle="{StaticResource tbStyle}"/>
                 </DataGrid.Columns>
             </DataGrid>
+            </GroupBox>
 
+            <GroupBox DockPanel.Dock="Right">
+                <GroupBox.Header>
+                    <TextBlock Text="Protocol errors"/>
+                </GroupBox.Header>
+           
             <ListView ItemsSource="{Binding ProtocolErrors, IsAsync=True}"
                   x:Name="errorList"
-                  DockPanel.Dock="Right"
+                  BorderThickness="0"
                   Height="200"
                   Foreground="Black"
                   VirtualizingPanel.VirtualizationMode="Recycling"
@@ -180,6 +197,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+            </GroupBox>
 
         </DockPanel>
 
