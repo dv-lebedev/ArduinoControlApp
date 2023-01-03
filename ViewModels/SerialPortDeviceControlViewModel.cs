@@ -43,7 +43,10 @@ namespace ArduinoControlApp.ViewModels
                 _selectedPort = value;
                 RaisePropertyChanged();
 
-                _serialPortDeviceModel.PortName = _selectedPort ?? string.Empty;
+                if (!string.IsNullOrEmpty(_selectedPort))
+                {
+                    _serialPortDeviceModel.PortName = _selectedPort;
+                }
             }
         }
 

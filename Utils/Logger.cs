@@ -52,7 +52,7 @@ namespace ArduinoControlApp
 
             if (notifyUser)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "ArduinoControlApp");
             }
         }
     }
