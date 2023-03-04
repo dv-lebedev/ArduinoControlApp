@@ -12,7 +12,6 @@ limitations under the License.
 */
 
 using ArduinoControlApp.Coder;
-using ArduinoControlApp.Entities;
 using ArduinoControlApp.Interfaces;
 using ArduinoControlApp.Utils;
 using System;
@@ -25,6 +24,8 @@ namespace ArduinoControlApp.Models
 {
     public abstract class DeviceModel : INotifyPropertyChanged
     {
+        const int                           BufferSize = ushort.MaxValue / 2;
+
         readonly ConcurrentQueue<byte[]>    _transmitQueue = new ConcurrentQueue<byte[]>();
         readonly Speedometer                _recSpeed = new Speedometer();
         readonly Speedometer                _transSpeed = new Speedometer();
@@ -36,13 +37,13 @@ namespace ArduinoControlApp.Models
         bool                                _isConnected;
         static DeviceModel                  _currentDeviceModel;
 
-        public event EventHandler Connected;
-        public event EventHandler Disconnected;
-        public static event EventHandler CurrentDeviceModelChanged;
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public RCoder                       Coder { get; } = new RCoder();
         public IDataConsumer                DataConsumer { get; set; }
+
+        public event EventHandler                   Connected;
+        public event EventHandler                   Disconnected;
+        public static event EventHandler            CurrentDeviceModelChanged;
+        public event PropertyChangedEventHandler    PropertyChanged;
 
         public IDevice CurrentDevice
         {
@@ -108,30 +109,17 @@ namespace ArduinoControlApp.Models
             }
         }
 
-        public DeviceModel() 
+        public DeviceModel()
         {
-            if (Coder != null)
-            {
-                Coder.OnPackageReceived += Coder_OnPackageReceived;
-                Coder.GotError += Coder_GotError;
-            }
-        }
-
-        private void Coder_GotError(object sender, ProtocolErrorEventArgs e)
-        {
-            DataConsumer?.ProcessError(e);
-        }
-
-        private void Coder_OnPackageReceived(object sender, Package e)
-        {
-            DataConsumer?.Consume(e);
+            Coder.OnPackageReceived += (_, e) => DataConsumer?.Consume(e);
+            Coder.GotError += (_, e) => DataConsumer?.ProcessError(e); 
         }
 
         protected abstract IDevice CreateDeviceBeforeConnect();
 
         public void Connect()
         {
-            if (CurrentDeviceModel != null && CurrentDeviceModel.IsConnected)
+            if (CurrentDeviceModel?.IsConnected ?? false)
             {
                 CurrentDeviceModel.Disconnect();
             }
@@ -187,25 +175,38 @@ namespace ArduinoControlApp.Models
         {
             try
             {
-                byte[] buffer = new byte[65535 / 2];
+                if (_currentDevice == null)
+                {
+                    throw new NullReferenceException(nameof(_currentDevice));
+                }
+
+                if (Coder == null)
+                {
+                    throw new NullReferenceException(nameof(Coder));
+                }
+
+                byte[] buffer = new byte[BufferSize];
+                int read = 0;
 
                 while (true)
                 {
                     ct.ThrowIfCancellationRequested();
 
-                    int read = _currentDevice?.Read(buffer, 0, buffer.Length) ?? 0;
+                    read = _currentDevice.Read(buffer, 0, buffer.Length);
 
                     if (read > 0)
                     {
-                        Coder?.Decode(buffer, 0, read);
+                        Coder.Decode(buffer, 0, read);
 
                         if (_recSpeed.TryCalculateSpeed(read, out double? recSpeedValue))
                         {
                             ReceivedSpeed = recSpeedValue ?? 0;
                         }
                     }
-
-                    Thread.Sleep(1);
+                    else
+                    {
+                        Thread.Sleep(1);
+                    }
                 }
             }
             catch (OperationCanceledException)
@@ -252,8 +253,10 @@ namespace ArduinoControlApp.Models
                             }
                         }
                     }
-
-                    Thread.Sleep(1);
+                    else
+                    {
+                        Thread.Sleep(1);
+                    }
                 }
             }
             catch (OperationCanceledException)
